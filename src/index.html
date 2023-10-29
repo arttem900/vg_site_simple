@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../src/style.css">
+    <script src="../src/min_copy.js"></script>
     <title>Натяжные потолки в Москве</title>
 </head>
 <body>
@@ -209,6 +210,9 @@
                        </div>
                    </div>
                 </div>
+
+
+                
                 <div class="calc_section">
                     <div class="container">
                         <div class="calc-content">
@@ -216,17 +220,33 @@
                                 <div class="section_title"><h2>Калькулятор</h2>
                                     <small><h3>Рассчитать стоимость натяжного потолка с<br> установкой</h3></small>
                                 </div>
-                                <div class="title_info">Информация о потолке</div>
                                 <div class="calc_container_form">
                                     <div class="col_form">
+                                        <div class="title_info">Информация о потолке</div>
                                         <div class="form_group">
                                             <label for="name_ceiling" class="form_label">Полотно</label>
-                                        <select name="canvas" id="name_ceiling">
-                                            <option value="0">Выберите</option>
-                                            <option value="0">Матовый</option>
-                                            <option value="0">Глянец</option>
-                                            <option value="0">Тканевый</option>
-                                        </select>
+                                            <div class="select_wrapper">
+                                                <b class="button"></b>
+                                                <ul>
+                                                    <li value="1">MAT</li>
+                                                </ul>
+                                                <select name="canvas" id="name_ceiling">
+                                                    <option value="0">Выберите</option>
+                                                    <option value="0">Матовый</option>
+                                                    <option value="0">Глянец</option>
+                                                    <option value="0">Тканевый</option>
+                                                </select>
+                                                <div class="selectric">
+                                                    <span class="label">Выб</span>
+                                                    <div class="selectric_items">
+                                                        <ul>
+                                                            <li>Мат</li>
+                                                            <li>Сат</li>
+                                                            <li>Глян</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form_group">
                                             <label for="square">Площадь м<sup>2</sup></label>
@@ -234,22 +254,51 @@
                                         </div>
                                         <div class="form_group">
                                             <label for="name_corner" class="form_label">Доп. углы</label>
-                                        <select name="corner" id="name_corner">
-                                            <option value="0">Выберите</option>
-                                            <option value="0">1</option>
-                                            <option value="0">2</option>
-                                            <option value="0">3</option>
-                                        </select>
+                                            <div class="select_wrapper">
+                                                <b class="button"></b>
+                                                <select name="corner" id="name_corner">
+                                                    <option value="0">Выберите</option>
+                                                    <option value="0">1</option>
+                                                    <option value="0">2</option>
+                                                    <option value="0">3</option>
+                                                </select>
+                                                <div class="selectric">
+                                                    <span class="label">Выб</span>
+                                                    <div class="selectric_items">
+                                                        <ul>
+                                                            <li>1</li>
+                                                            <li>2</li>
+                                                            <li>3</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form_group">
                                             <label for="name_pipe" class="form_label">Кол. труб</label>
-                                        <select name="pipe" id="name_pipe">
-                                            <option value="0">Выберите</option>
-                                            <option value="0">1</option>
-                                            <option value="0">2</option>
-                                            <option value="0">3</option>
-                                        </select>
+                                            <div class="select_wrapper">
+                                                <b class="button"></b>
+                                                <select name="pipe" id="name_pipe">
+                                                    <option value="0">Выберите</option>
+                                                    <option value="0">1</option>
+                                                    <option value="0">2</option>
+                                                    <option value="0">3</option>
+                                                </select>
+                                                <div class="selectric">
+                                                    <span class="label">Выб</span>
+                                                    <div class="selectric_items">
+                                                        <ul>
+                                                            <li>1</li>
+                                                            <li>2</li>
+                                                            <li>3</li>
+                                                            <li>3</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
+                                    </div>
+                                    <div class="col_form">
                                         <div class="title_info">Освещение</div>
                                         <div class="form_group">
                                             <label for="name_chandelier">Люстра</label>
@@ -259,26 +308,28 @@
                                             <label for="name_lamp">Светильники</label>
                                             <input id="name_lamp" type="text" class="form_control">
                                         </div>
-                                    </div>
-                                    <div class="col_form">
                                         <div class="final_price">
                                             <span class="final_price_title">Итоговая стоимость</span>
                                             <span class="final_sum"><span>0</span> руб/м2</span>
                                         </div>
-                                        <small><h3>Оставьте заявку<br> и мы вам перезвоним</h3></small>
-                                        <div class="form_group">
-                                            <label for="usename">Имя*</label>
-                                            <input id="usename" type="text" class="form_control">
+                                    </div>
+                                    <div class="col_form">
+                                        <span class="application_form_title">Оставьте заявку<br> <small>и мы вам перезвоним</small></span>
+                                        <div class="group_name_phone">
+                                            <div class="form_group">
+                                                <label for="usename">Имя*</label>
+                                                <input id="usename" type="text" class="form_control">
+                                            </div>
+                                            <div class="form_group">
+                                                <label for="phone">Телефон*</label>
+                                                <input id="phone" type="text" class="form_control">
+                                            </div>
+                                            <label class="checkbox">
+                                                <input type="checkbox" checked>
+                                                <span class="checkbox_text">Согласие на обработку <br><a class="data" href="#">персональных данных</a></span>
+                                            </label>
+                                            <button type="submit" class="main_btn">Оставить заявку</button>
                                         </div>
-                                        <div class="form_group">
-                                            <label for="phone">Телефон*</label>
-                                            <input id="phone" type="text" class="form_control">
-                                        </div>
-                                        <label class="checkbox">
-                                            <input type="checkbox" checked>
-                                            <span class="checkbox_text">Согласие на обработку <a class="data" href="#">персональных данных</a></span>
-                                        </label>
-                                        <button type="submit" class="main_btn">Оставить заявку</button>
                                     </div>
                                 </div>
                             </form>
@@ -292,5 +343,6 @@
    <footer class="main_footer">
 
    </footer>
+   <script src="app.js"></script>
 </body>
 </html>
