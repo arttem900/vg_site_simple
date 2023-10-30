@@ -5,6 +5,9 @@
 /* html{
     min-height: 100vw;
 } */
+.page{
+    margin-top: 300px;
+}
 body {
     height: 100%;
     background: #fff;
@@ -27,9 +30,13 @@ h1,h2,h3,h4{
 h3{
     font-size: 21px;
 }
+input[type=radio] {
+    box-sizing: border-box;
+    padding: 0;
+}
 select{
     /* -moz-appearance: none; */
-    -webkit-appearance: none;
+    /* -webkit-appearance: none; */
     border: none;
     cursor: pointer;
     position: relative;
@@ -50,33 +57,31 @@ input{
 option{
     cursor: pointer;
 }
-option:hover{
-   background-color: #00507f;
-}
+
 @font-face {
 	font-family: 'Montserrat';
-	src: url('../src/fonts/Montserrat-Regular.woff2') format('woff2'), url('../src/fonts/Montserrat-Regular.woff') format('woff');
+	src: url('../fonts/Montserrat-Regular.woff2') format('woff2'), url('../fonts/Montserrat-Regular.woff') format('woff');
 	font-weight: 400;
 	font-style: normal;
     font-display: swap;
 }
 @font-face {
 	font-family: 'Montserrat';
-	src: url('../src/fonts/Montserrat-Medium.woff2') format('woff2'), url('../src/fonts/Montserrat-Medium.woff') format('woff');
+	src: url('../fonts/Montserrat-Medium.woff2') format('woff2'), url('../fonts/Montserrat-Medium.woff') format('woff');
 	font-weight: 500;
 	font-style: normal;
     font-display: swap;
 }
 @font-face {
 	font-family: 'Montserrat';
-	src: url('../src/fonts/Montserrat-Bold.woff2') format('woff2'), url('../src/fonts/Montserrat-Bold.wofff') format('woff');
+	src: url('../fonts/Montserrat-Bold.woff2') format('woff2'), url('../fonts/Montserrat-Bold.wofff') format('woff');
 	font-weight: 700;
 	font-style: normal;
     font-display: swap;
 }
 @font-face {
 	font-family: 'Montserrat';
-	src: url('../src/fonts/Montserrat-Black.woff2') format('woff2'), url('../src/fonts/Montserrat-Black.woff') format('woff');
+	src: url('../fonts/Montserrat-Black.woff2') format('woff2'), url('../fonts/Montserrat-Black.woff') format('woff');
 	font-weight: 900;
 	font-style: normal;
     font-display: swap;
@@ -341,7 +346,7 @@ button {
     
 }
 .banner_section{
-    background: url(../src/img/banner_one.webp) no-repeat;
+    background: url(../img/banner_one.webp) no-repeat;
     height: 532px;
     width: 100%;
     background-size: cover;
@@ -432,7 +437,7 @@ button {
 .advantage_descr{
     display: flex;
     justify-content: space-around;
-    margin-top: 45px;
+    margin-top: 60px;
 }
 .item_circle{
     display: flex;
@@ -569,7 +574,7 @@ button {
     justify-content: space-around;
 }
 .calc_form .section_title{
-    margin-bottom: 60px;
+    margin-bottom: 50px;
 }
 .calc_form h3{
     color: #000000;
@@ -577,6 +582,19 @@ button {
 .calc_form label{
     margin-bottom: 7px;
     font-weight: 500;
+}
+.calc_form .checkbox_label{
+    display: flex;
+    align-items: flex-start;
+}
+.group_name_phone label{
+    color: #fff;
+}
+.group_name_phone label a{
+    color: #fff;
+}
+.checkbox_text{
+    font-size: 14px;
 }
 .col_form{
     display: flex;
@@ -600,8 +618,8 @@ button {
     background-color: #00507f;
     color: #fff;
     font-weight: 500;
-    padding: 25px 25px;
-    margin-top: 30px;
+    padding: 30px 30px;
+    margin-top: 25px;
 }
 .final_price_title{
     font-size: 21px;
@@ -618,21 +636,24 @@ button {
 .form_group .form_control{
     height: 30px;
     width: 200px;
-    padding: 0 10px;
+    padding: 2px 10px;
 }
 .form_group select{
     height: 30px;
     width: 220px;
 }
+.group_ident{
+    margin-bottom: 30px;
+}
 .select_wrapper{
-    display: flex;
+    /* display: flex;
     align-items: center;
     position: relative;
-    max-width: 220px;
+    max-width: 220px; */
 }
 
 .button{
-    display: flex;
+    /* display: flex;
     align-items: center;
     justify-content: center;
     width: 25px;
@@ -641,17 +662,16 @@ button {
     position: absolute;
     right: 2px;
     cursor: pointer;
-    z-index: 1;
+    z-index: 1; */
 }
 .button::after{
-    content: '';
-    /* position: absolute; */
+    /* content: '';
     display: block;
     border-bottom: 2px solid #fff;
     border-left: 2px solid #fff;
     width: 5px;
     height: 5px;
-    transform: rotate(-45deg);
+    transform: rotate(-45deg); */
 }
 .application_form_title{
     text-transform: uppercase;
@@ -670,26 +690,277 @@ button {
 .group_name_phone .main_btn{
     margin-top: 20px;
 }
-.selectric{
-    position: absolute;
-    top: 0;
-    left: 0;
+.choices{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     width: 220px;
-    height: 100%;
-    background: #fff;
+    height: 35px;
 }
-.selectric_items{
-    background-color: #fff;
-    transform: scaleY(0);
+.choices__inner{
+    padding: 0;
+    min-height: 30px;
+    font-size: 18px;
 }
-
-.select_transform{
-    transform: scaleY(1);
+.choices[data-type*=select-one] .choices__inner{
+    padding-bottom: 0;
 }
+.choices__list--dropdown, .choices__list[aria-expanded]{
+    width: 220px;
+}
+.choices__list--single{
+    width: 220px;   
+}
+.choices[data-type*=select-one]::after{
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-style: solid;
+    border-bottom: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-width: 0 0 2px 2px;
+    position: absolute;
+    right: 11.5px;
+    top: auto;
+    margin-top: -2.5px;
+    transform: rotate(-45deg);
+    pointer-events: none;
+}
+.choices[data-type*=select-one].is-open::after{
+    top: 60%;
+    border-bottom: 2px solid #fff;
+    border-left: 2px solid #fff;
+    border-width: 0 0 2px 2px;
+    transform: rotate(135deg);
     
-
-
+}
+.choices[data-type*=select-one]::before{
+    content: '';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    background-color: #00507f;
+    position: absolute;
+    right: 2px;
+    cursor: pointer;
+}
+.choices__list--dropdown .choices__list .choices__item{
+    font-size: 18px;
+}
+.choices__list--dropdown .choices__list .choices__item:hover{
+    background-color: #00507f;
+    color: #fff;
+}
+.choices__list--dropdown .choices__list, .choices__list[aria-expanded] .choices__list{
+    max-height: 250px;
+}
+.choices__list::-webkit-scrollbar{
+    width: 5px;
+}
+.choices__list::-webkit-scrollbar-track{
+    background-color: #fff;
+}
+.choices__list::-webkit-scrollbar-thumb{
+    background-color: #00507f;
+}
+.checkbox_label{
+    position: relative;
+    cursor: pointer;
+    margin-top: 12px;
+}
+.checkbox_label input{
+    position: absolute;
+    display: none;
+}
+.checkbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 16px;
+    height: 16px;
+    margin-top: 4px;
+    margin-right: 10px;
+    background-color: #fff;
+}
+.checkbox_label input[type="checkbox"]:checked + .checkbox::after{
+     content: '';
+    display: block;
+    border-bottom: 2px solid #000;
+    border-left: 2px solid #000;
+    width: 7px;
+    height: 5px;
+    margin-bottom: 3px;
+    transform: rotate(-45deg);
+}
 /* end calc-section */
+
+/* stages_section */
+.stages_section{
+    margin-top: 60px;
+    padding: 60px 0;
+    background-color: #edf7ff;
+}
+.stages_section .section_title{
+    margin-bottom: 60px;
+}
+.stages_item{
+    width: 260px;
+}
+.stages_item .item_circle span{
+    font-size: 18px;
+}
+.stages_item .img-circle{
+    background-color: #00507f;
+    border: none;
+    color: #fff;
+}
+.stages_flex_block{
+    display: flex;
+}
+.stages_flex_block .item_circle{
+    position: relative;
+}
+.arrow_stages{
+    position: absolute;
+    right: -20%;
+    top: 50%;
+}
+.arrow_stages_two{
+    top: 15%;
+}
+.circle_bottom{
+    margin-top: 60px;
+}
+.circle_bottom .img-circle{
+    margin-bottom: 0;
+    margin-top: 30px;
+}
+.img_margin_left{
+    margin-left: 10px;
+}
+/* end stages_section */
+
+/* certificate_section */
+.certificate_section{
+    padding: 60px 0;
+    background-color: #00507f;
+}
+.certificate_section .section_title{
+    color: #fff;
+    margin-bottom: 60px;
+}
+.wrapp_certificate_slide{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 70px;
+    position: relative;
+}
+
+.arrow_left::before{
+    content: '';
+    display: block;
+    border: 20px solid transparent; 
+    border-right: 20px solid #fff;
+    position: absolute;
+    left: 0;
+    top: 40%;
+    height: 0;
+    width: 0;
+    transition: all .2s;
+    cursor: pointer;
+}
+.arrow_left:hover::before{
+    border-right: 20px solid #ec004f;
+}
+.arrow_right::before{
+    content: '';
+    display: block;
+    border: 20px solid transparent; 
+    border-left: 20px solid #fff;
+    position: absolute;
+    right: 0;
+    top: 40%;
+    height: 0;
+    width: 0;
+    cursor: pointer;
+}
+.arrow_right:hover::before{
+    border-left: 20px solid #ec004f;
+}
+/* end certificate_section */
+
+/* questions_section */
+.questions_section{
+    padding: 60px 0;
+    margin-top: 60px;
+    background-color: #66b3e2;
+}
+.questions_section .section_title{
+    margin-bottom: 60px;
+}
+.questions_section .section_title{
+    color: #fff;
+}
+.questions_item{
+    background-color: #fff;
+    width: 100%;
+    position: relative;
+    margin-top: 10px;
+}
+.arrow{
+    content: '';
+    height: 0;
+    width: 0;
+    /* border-radius: 50%; */
+    /* background-color: #AC9171; */
+    position: absolute;
+    border: 15px solid transparent; 
+    border-left: 15px solid #ec004f;
+    top: 0;
+    bottom: 0;
+    right: 20px;
+    margin: auto;
+    cursor: pointer;
+    transition: transform .3s;
+    transform-origin: 15% 50% 0;
+    font-size: 25px;
+    transform: rotate(180deg);
+}
+.arrow::before{
+    /* content: '';
+    display: block;
+    border: 15px solid transparent; 
+    border-left: 15px solid #ec004f;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 0;
+    width: 0;
+    cursor: pointer;
+    transform-origin: 0 70% 0;
+    text-align: center;
+    transform: rotate(180deg); */
+}
+.s{
+    transform: rotate(90deg);
+}
+.questions_header{
+    display: flex;
+    align-items: center;
+    height: 55px;
+    padding: 0 100px;
+}
+.questions_answers{
+    padding: 25px 100px;
+    background-color: #edf7ff;
+}
+.questions_item .hide{
+    display: none;
+}
+/* end questions_section */
+
 
 
 
