@@ -852,41 +852,46 @@ button {
     margin-bottom: 60px;
 }
 .wrapp_certificate_slide{
-    display: flex;
-    justify-content: space-between;
-    padding: 0 70px;
+    overflow: hidden;
+    max-width: 1030px;
+    margin: 0 auto;
+    padding: 0 20px;
     position: relative;
 }
-
-.arrow_left::before{
-    content: '';
+.certificate_slide{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    transition: .3s;
+}
+.arrow_left{
     display: block;
     border: 20px solid transparent; 
     border-right: 20px solid #fff;
     position: absolute;
-    left: 0;
+    left: -20px;
     top: 40%;
     height: 0;
     width: 0;
     transition: all .2s;
     cursor: pointer;
 }
-.arrow_left:hover::before{
+.arrow_left:hover{
     border-right: 20px solid #ec004f;
 }
-.arrow_right::before{
-    content: '';
+.arrow_right{
+    /* content: ''; */
     display: block;
     border: 20px solid transparent; 
     border-left: 20px solid #fff;
     position: absolute;
-    right: 0;
+    right: -20px;
     top: 40%;
     height: 0;
     width: 0;
     cursor: pointer;
 }
-.arrow_right:hover::before{
+.arrow_right:hover{
     border-left: 20px solid #ec004f;
 }
 /* end certificate_section */
@@ -943,7 +948,7 @@ button {
     text-align: center;
     transform: rotate(180deg); */
 }
-.s{
+.questions_item .is-active{
     transform: rotate(90deg);
 }
 .questions_header{
