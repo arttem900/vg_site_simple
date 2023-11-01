@@ -13,43 +13,81 @@ const sliderItem = wrappSlide.querySelectorAll('.certificate_item')
 const arrowRight = wrappSlide.querySelector('.arrow_right')
 const arrowLeft = wrappSlide.querySelector('.arrow_left')
 const img = wrappSlide.querySelectorAll('.certificate_item img')
-console.log(img[1].src);
+
+console.log(sliderItem[sliderItem.length -1]);
 
 let widthElemSlide,
     slideCount = 0,
     actionS
 
+let arr = [],
+    imgArr = []
+
+img.forEach(img => {
+    imgArr.push(img)
+})
+
 sliderItem.forEach(item => {
     let width = item.offsetWidth
     widthElemSlide = width
+    arr.push(item)
 })
-
 arrowRight.addEventListener('click', moveForward)
-// arrowLeft.addEventListener('click', moveBack)
+arrowLeft.addEventListener('click', moveBack)
+// let arrClone = []
+// for (let i = 0; i < img.length; i++) {
+//     let clone = document.createElement('div')
+//     let images = document.createElement('img')
+//     clone.className = 'certificate_item_clone'
+//     images.src = img[i].src
+//     clone.appendChild(images)
+//     arrClone.push(clone)
+//     sliderTape.prepend(clone)
+    // console.log(arrClone.length);
+// }
+
+
+
 
 function moveForward() {
     slideCount++
-    for(let i = 0; i < img.length; i++){
-        let clone = document.createElement('img')
-        clone.className = 'clone'
-        clone.src = img[i+1].src
-        sliderTape.prepend(clone)
-        break
+    let it = document.querySelectorAll('.certificate_item')
+    for(let i = 0; i < it.length; i++){
+        it[it.length -1].remove()
     }
-   
-    if (slideCount >= 5) {
-        // slideCount = 0
+    
+    // for (let i = 0; i < sliderItem.length; i++) {
+       
+    //    let clone = document.createElement('div')
+    //    let images = document.createElement('img')
+    //    clone.className = 'certificate_item_clone'
+    //    images.src = imgArr[imgArr.length -1].src
+    //    imgArr.unshift(images)
+    //    clone.appendChild(images)
+    //    sliderTape.prepend(clone)
+    //    arr.unshift(clone)
+    //    arr.pop()
+    //    imgArr.pop()
+    //    console.log(imgArr);
+    //    console.log(arr);
+    //    break
+    // }
+    if (slideCount >= (sliderItem.length)){  
+    //    slideCount = 0
+    }
+
+    sliderAction()
+    
+}
+
+
+function moveBack() {
+    slideCount--
+    if (slideCount < - 4) {
+        slideCount = 0
     }
     sliderAction()
 }
-
-// function moveBack() {
-//     slideCount--
-//     if (slideCount < - 4) {
-//         slideCount = 0
-//     }
-//     sliderAction()
-// }
 
 
 
@@ -70,7 +108,6 @@ questionsArrow.forEach(element => {
         element.classList.toggle('is-active')
     })
 })
-
 
 
 
