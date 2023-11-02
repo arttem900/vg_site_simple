@@ -5,6 +5,8 @@
 /* html{
     min-height: 100vw;
 } */
+
+
 .page{
     margin-top: 300px;
 }
@@ -463,6 +465,19 @@ button {
 }
 
 /* product-card */
+.wrapp_product_tab .show{
+    opacity: 1;
+    height: auto;
+    width: auto;
+    margin-top: 60px;
+    transition: opacity 1s;
+}
+.wrapp_product_tab .hide{
+    opacity: 0;
+    height: 0;
+    width: 0;
+    margin-top: 0;
+}
 .product_card_section{
     padding: 60px 0;
 }
@@ -503,6 +518,8 @@ button {
     object-fit: cover;
     width: 100%;
     height: 100%;
+    position: relative;
+    z-index: -1;
 }
 .block_descr_product_card{
     display: flex;
@@ -862,7 +879,56 @@ button {
     display: flex;
     justify-content: center;
     gap: 40px;
-    transition: .3s;
+}
+
+
+.certificate_slide .fade{
+    animation: fade linear .2s;
+}
+@keyframes fade{
+    0%{
+        transform: translateX(-166px);
+    }
+    100%{
+        transform: translateX(0px); 
+    }
+}
+.certificate_slide .fade_two{
+    animation: fade_two linear .2s;
+}
+@keyframes fade_two{
+    0%{
+        transform: translateX(-166px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+.certificate_slide .fade_free{
+    animation: fade_free linear .2s;
+}
+@keyframes fade_free{
+    0%{
+        transform: translateX(166px);
+        
+    }
+    100%{
+        transform: translateX(0px);
+        
+    }
+}
+.certificate_slide .fade_five{
+    animation: fade_five linear .2s;
+}
+@keyframes fade_five{
+    0%{
+        transform: translateX(166px);
+        
+    }
+    100%{
+        transform: translateX(0px);
+      
+    }
 }
 .arrow_left{
     display: block;

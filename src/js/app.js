@@ -6,97 +6,105 @@ select.forEach(elem => {
     });
 })
 
+// tabi
+
+function tabVisible(containerTab, elemTab, contentTab) {
+    function tabContentHide(visible) {
+        for (let i = visible; i < contentTab.length; i++) {
+            contentTab[i].classList.remove('show')
+            contentTab[i].classList.add('hide')
+        }
+    }
+    tabContentHide(1)
+
+    function tabContentVisible(b) {
+        if (contentTab[b].classList.contains('hide')) {
+            contentTab[b].classList.add('show')
+            contentTab[b].classList.remove('hide')
+        }
+    }
+
+    containerTab.addEventListener('click', (e) => {
+        let target = e.target
+        if (target && target.classList.contains('stroke')) {
+            for (let i = 0; i < elemTab.length; i++) {
+                if (target == elemTab[i]) {
+                    tabContentHide(0)
+                    tabContentVisible(i)
+                }
+            }
+        }
+    })
+}
+
+let tabProductCard = document.querySelector('.tab_product_card'),
+    stroke = document.querySelectorAll('.stroke'),
+    tabContent = document.querySelectorAll('.block_descr_product_card')
+
+tabVisible(tabProductCard, stroke, tabContent)
+
+// end tabi
+
 // slider
 const wrappSlide = document.querySelector('.wrapp_certificate_slide')
 const sliderTape = wrappSlide.querySelector('.certificate_slide')
 const sliderItem = wrappSlide.querySelectorAll('.certificate_item')
 const arrowRight = wrappSlide.querySelector('.arrow_right')
 const arrowLeft = wrappSlide.querySelector('.arrow_left')
-const img = wrappSlide.querySelectorAll('.certificate_item img')
 
-console.log(sliderItem[sliderItem.length -1]);
+let slideCount = 0
 
-let widthElemSlide,
-    slideCount = 0,
-    actionS
+let slideTime = setInterval(() => {
+    moveForward()
+},3000)
 
-let arr = [],
-    imgArr = []
-
-img.forEach(img => {
-    imgArr.push(img)
+arrowRight.addEventListener('click', () => {
+    moveForward()
+    clearInterval(slideTime)
+} 
+)
+arrowLeft.addEventListener('click', () => {
+    moveBack()
+    clearInterval(slideTime)
 })
 
 sliderItem.forEach(item => {
     let width = item.offsetWidth
     widthElemSlide = width
-    arr.push(item)
 })
-arrowRight.addEventListener('click', moveForward)
-arrowLeft.addEventListener('click', moveBack)
-// let arrClone = []
-// for (let i = 0; i < img.length; i++) {
-//     let clone = document.createElement('div')
-//     let images = document.createElement('img')
-//     clone.className = 'certificate_item_clone'
-//     images.src = img[i].src
-//     clone.appendChild(images)
-//     arrClone.push(clone)
-//     sliderTape.prepend(clone)
-    // console.log(arrClone.length);
-// }
-
-
 
 
 function moveForward() {
-    slideCount++
     let it = document.querySelectorAll('.certificate_item')
     for(let i = 0; i < it.length; i++){
-        it[it.length -1].remove()
-    }
-    
-    // for (let i = 0; i < sliderItem.length; i++) {
-       
-    //    let clone = document.createElement('div')
-    //    let images = document.createElement('img')
-    //    clone.className = 'certificate_item_clone'
-    //    images.src = imgArr[imgArr.length -1].src
-    //    imgArr.unshift(images)
-    //    clone.appendChild(images)
-    //    sliderTape.prepend(clone)
-    //    arr.unshift(clone)
-    //    arr.pop()
-    //    imgArr.pop()
-    //    console.log(imgArr);
-    //    console.log(arr);
-    //    break
-    // }
-    if (slideCount >= (sliderItem.length)){  
-    //    slideCount = 0
-    }
-
-    sliderAction()
-    
+        it[i].classList.remove('fade_free')
+        it[i].classList.remove('fade_five')
+        if(it[i].classList.contains('fade')){
+            it[i].classList.remove('fade')
+            it[i].classList.add('fade_two')
+        }else{
+            it[i].classList.remove('fade_two')
+            it[i].classList.add('fade')
+        }    
+        sliderTape.prepend(it[it.length -1])  
+    } 
 }
-
 
 function moveBack() {
-    slideCount--
-    if (slideCount < - 4) {
-        slideCount = 0
-    }
-    sliderAction()
+    let it = document.querySelectorAll('.certificate_item')
+    for(let i = 0; i < it.length; i++){
+        it[i].classList.remove('fade')
+        it[i].classList.remove('fade_two')
+        if(it[i].classList.contains('fade_free')){
+            it[i].classList.remove('fade_free')
+            it[i].classList.add('fade_five')
+        }else{
+            it[i].classList.remove('fade_five')
+            it[i].classList.add('fade_free')
+        }  
+        sliderTape.append(it[0])  
+    }    
 }
-
-
-
-    function sliderAction() {
-        sliderTape.style.transform = `translateX(${(slideCount * widthElemSlide) + (slideCount * 40.5)}px)`
-    }
-  
-
-
 
 // end slider
 
