@@ -152,6 +152,35 @@ let questionsArrow = document.querySelectorAll(".questions_item .arrow"),
             }
     }
 
+// reviwes
+let reviewContainer = document.querySelectorAll('.reviwes_block'),
+    btnRead = document.querySelectorAll('.read-compete')
+
+
+
+reviewContainer.forEach(elem => {
+    elem.addEventListener('click', (event) => {
+        let target = event.target
+        for (let i = 0; i < btnRead.length; i++) {
+            if (target == btnRead[i]) {
+                let overflowBlock = elem.querySelector('.overflow-block')
+                if (overflowBlock.style.height != '100%') {
+                    overflowBlock.style.display = 'block'
+                    overflowBlock.style.height = '100%'
+                    elem.style.height = '100%'
+                    btnRead[i].innerHTML = 'Скрыть'
+                } else {
+                    overflowBlock.style.display = '-webkit-box'
+                    overflowBlock.style.height = '65px'
+                    elem.style.height = '230px'
+                    btnRead[i].innerHTML = 'Читать полностью'
+                }
+            }
+        }
+    })
+})
+// end reviwes
+
 // map
 
 function showYaMaps() {
@@ -205,7 +234,7 @@ function showYaMaps() {
     }
 }
 showYaMaps()
-
+// end map
 
 
 

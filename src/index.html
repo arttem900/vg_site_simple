@@ -15,7 +15,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="main_header-left_col">
-                            <div class="logo"><img src="..\src\img\logo011.svg" alt=""></div>
+                            <div class="logo"><img src="../src/img/logo.webp" alt=""></div>
                         </div>
                             <div class="main_header-center_col">
                                 <div class="block_address">
@@ -50,7 +50,7 @@
                 <div class="container">
                     <nav class="navigation_wrapp">
                         <ul class="nav_menu">
-                            <li class="nav_item is-active"><a href="#">Главная</a></li>
+                            <li class="nav_item"><a class="is-active" href="#">Главная</a></li>
                             <li class="nav_item nav_item_hover"><a href="#">Каталог</a>
                                 <span class="parent"></span>
                                 <div class="dropdown-menu">
@@ -891,7 +891,7 @@
         <div class="container">
             <div class="wrapp_footer_info">
                 <div class="block_info">
-                    <div class="logo"><img src="..\src\img\logo011.svg" alt=""></div>
+                    <div class="logo"><img src="../src/img/logo.webp" alt=""></div>
                     <div class="block_connection">
                         <ul class="social_media">
                             <li><a href="#"><img src="../src/icons/WApp.svg" alt=""></a></li>
@@ -981,6 +981,34 @@
         </div>
      </div>
    </footer>
+</div>
+<div class="modal">
+    <div class="popup_content">
+        <span class="close"></span>
+        <div class="section_title">Оставьте заявку<br><small>на замер в Москве и получите 4 бесплатные опции</small></div>
+        <div class="options_block">
+            <div class="options_item">Выезд замерщика </div>
+            <div class="options_item">Выезд замерщика </div>
+            <div class="options_item">Выезд замерщика </div>
+            <div class="options_item">Выезд замерщика </div>
+        </div>
+        <form action="#" class="application_form">
+            <div class="form_group">
+                <label for="modal_application_name" class="application_label">
+                    <input id="modal_application_name" class="form_control" type="text" placeholder="Ваше имя">
+                </label>
+                <label for="modal_application_phone" class="application_label">
+                    <input id="modal_application_phone" class="form_control" type="text" placeholder="Ваш телефон">
+                </label>
+            </div>
+            <label class="checkbox_label">
+                <input type="checkbox" checked>
+                <span class="checkbox"></span>
+                <span class="checkbox_text">Согласие на обработку <a class="data" href="#">персональных данных</a></span>
+            </label>
+        </form>
+        <button type="submit" class="main_btn">Оставить заявку</button>
+    </div>
 </div>
    <script src="js/choices.min.js"></script>
    <script src="js/app.js"></script>
