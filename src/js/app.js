@@ -1,3 +1,5 @@
+let body = document.querySelector('body')
+
 const select = document.querySelectorAll('.js-choice');
 select.forEach(elem => {
     const choices = new Choices(elem, {
@@ -5,6 +7,115 @@ select.forEach(elem => {
         itemSelectText: '',
     });
 })
+
+// header
+const calc = document.querySelector('.calc-content')
+document.querySelector('.go_calculator').addEventListener('click', () => {
+    calc.scrollIntoView({behavior:'smooth', block: "center"})
+})
+// end header
+
+// menu
+
+// const menu = document.querySelector('.nav_menu')
+// const itemMenu = menu.querySelectorAll('.nav_item .link_item')
+// const wrappItemMenu = menu.querySelectorAll('.nav_item')
+// const dropdownMenu = document.querySelector('.dropdown-menu')
+// const linkSubMenu = dropdownMenu.querySelectorAll('ul li a')
+
+
+// for(let i = 0; i < itemMenu.length; i++){
+//     itemMenu[0].classList.add('is-active')
+// }
+
+// menu.addEventListener('click', (e) => {
+//     let target = e.target
+//     if(target.classList.contains('link_item')){
+//         for(let i = 0; i < itemMenu.length; i++){
+//             if(target == itemMenu[i]){
+//                 itemMenu[i].classList.add('is-active')
+//             }else{
+//                 itemMenu[i].classList.remove('is-active')
+//             }   
+//         }
+//     }
+// })
+    
+// dropdownMenu.addEventListener('click', (e) => {
+//     let target = e.target
+//     if(target.classList.contains('link_submenu')){
+//         for(let i = 0; i < linkSubMenu.length; i++){
+//             if(target == linkSubMenu[i]){
+//                 linkSubMenu[i].classList.add('is-active')
+//                 for(let j = 0; j < itemMenu.length; j++){
+//                     itemMenu[j].classList.remove('is-active')
+//                     itemMenu[1].classList.add('is-active')
+//                 }
+//             }else{
+//                 linkSubMenu[i].classList.remove('is-active')
+//             }   
+//         }
+//     }
+// })
+
+//end menu
+const bannerSlide = () => {
+    const wrappSlide = document.querySelectorAll('.banner_section')
+    const tapeSlider = document.querySelector('.flex_banner')
+    
+
+    let slideInterval = setInterval(() => {
+        slideShow()
+    },6000)
+    let endWidth = 0,
+        width,
+        slideCount = 0
+     for(let i = 0; i < wrappSlide.length; i++){
+            width = wrappSlide[i].offsetWidth
+            endWidth += width
+     }
+    
+     tapeSlider.style.width = `${endWidth}px`
+     tapeSlider.style.display = 'flex'
+     tapeSlider.style.transition = '.6s'
+    
+    
+     function slideShow(){
+        slideCount++
+
+        if(slideCount > wrappSlide.length -1){
+            tapeSlider.style.transition = 'auto'
+            slideCount = 0
+        }else{
+            tapeSlider.style.transition = '.6s'
+        }
+
+        tapeSlider.style.transform = `translateX(${-slideCount*width}px)`
+     }
+}
+bannerSlide()
+
+// modal
+const btnModal = document.querySelectorAll('*[data-modal-btn]') 
+
+for(let i = 0; i < btnModal.length; i++){
+    btnModal[i].addEventListener('click', () => {
+        let meaning = btnModal[i].getAttribute('data-modal-btn')
+        let modal = document.querySelector("[data-modal='" + meaning + "']")
+        modal.style.display = 'block'
+        body.style.overflow = 'hidden'
+        modal.classList.remove('modal_fade')
+        const closeModal = modal.querySelector('.close')
+        closeModal.addEventListener('click', () => {
+            modal.classList.add('modal_fade')
+            setTimeout(() => {
+                modal.style.display = 'none'
+            },600)
+            body.style.overflow = ''
+        })
+    })
+}
+// end modal
 
 
 // tabi

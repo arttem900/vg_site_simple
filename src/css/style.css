@@ -297,6 +297,15 @@ button {
     gap: 10px;
     margin-top: 20px;
 }
+.wrapp_btn_head button{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
 .wrapp_btn_head a{
     display: flex;
     align-items: center;
@@ -367,14 +376,29 @@ button {
     flex: 1 0 auto;
     
 }
+/* .wrapper_slider{
+    height: 532px;
+    position: relative;
+} */
 .banner_section{
-    background: url(../img/banner_one.webp) no-repeat;
     height: 532px;
     width: 100%;
     background-size: cover;
     background-position: 50% 0;
     position: relative;
     z-index: -1;
+}
+/* .flex_banner{
+    transition;
+} */
+.banner_hide{
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+.banner_show{
+    opacity: 1;
+    position: static;
 }
 .banner_info_block{
     width: 700px;
@@ -506,17 +530,13 @@ button {
 /* product-card */
 .wrapp_product_tab .show{
     opacity: 1;
-    height: auto;
-    width: auto;
+    position: static;
     margin-top: 60px;
     transition: opacity 1s;
 }
 .wrapp_product_tab .hide{
     opacity: 0;
-    height: 0;
-    width: 0;
-    margin-top: 0;
-    position: relative;
+    position: absolute;
     z-index: -10;
 }
 .product_card_section{
@@ -1475,7 +1495,7 @@ button {
     margin: 30px 0;
 }
 .block_info .main_btn{
-    max-width: 165px;
+    /* max-width: 165px; */
     text-transform: none;
     letter-spacing: -1px;
 }
@@ -1511,7 +1531,27 @@ button {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
+    animation: fade .6s;
     z-index: 100;
+}
+@keyframes fade {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.modal_fade{
+    animation: fades .6s;
+}
+@keyframes fades {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
 }
 .popup_content{
     max-width: 700px;
