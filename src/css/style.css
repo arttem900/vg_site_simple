@@ -342,6 +342,42 @@ button {
 .wrapp_btn_head .go_calculator:hover{
     color: #fff;
 }
+.burger_box{
+    display: none;
+    /* position: absolute;
+    right: 8%;
+    top: 50%; */
+    margin-left: 50px;
+    height: 40px;
+    align-items: center;
+    /* transform: translate(50%, -50%); */
+}
+.burger{
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: #fff;
+}
+
+
+.burger::before{
+    content: '';
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: #fff;
+    top: -9px;
+    position: relative;
+}
+.burger::after{
+    content: '';
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: #fff;
+    top: 5px;
+    position: relative;
+}
 .head_nav_panel{
     width: 100%;
     background-color: #66b3e2;
@@ -364,6 +400,7 @@ button {
 
 .nav_menu .nav_item:hover{
     background-color: #00507f;
+    height: auto;
     cursor: pointer;
 }
 .nav_menu li a{
@@ -376,10 +413,6 @@ button {
     flex: 1 0 auto;
     
 }
-/* .wrapper_slider{
-    height: 532px;
-    position: relative;
-} */
 .banner_section{
     height: 532px;
     width: 100%;
@@ -451,6 +484,9 @@ button {
     font-weight: 400;
 }
 .nav_item_hover{
+    position: relative;
+}
+.nav_item_hover a{
     position: relative;
 }
 .nav_menu .nav_item_hover a{
@@ -1690,4 +1726,58 @@ button {
     .container{
         max-width: 570px;
     }
+    .burger_box{
+        display: flex;
+    }
+    .block_connection{
+        flex-direction: row;
+        align-items: center;
+    }
+    .block_connection a{
+        font-size: 18px;
+    }
+    .social_media{
+        display: none;
+    }
+    .main_header-center_col{
+        display: none;
+    }
+    .main_header-center_col{
+        display: none;
+    }
+    .main_header{
+        padding: 16px 0
+    }
+    .head_nav_panel{
+        height: 100vh;
+        overflow: auto;
+        position: relative;
+    }
+    .nav_menu{
+        flex-direction: column;
+    }
+    .nav_menu .nav_item_hover:hover > .dropdown-menu{
+        position: static;
+    } 
+    .navigation_wrapp{
+        padding-top: 15vh;
+    }
+    .dropdown-menu{
+        position: static;
+        flex-direction: column;
+    }
+    .nav_item_hover{
+        text-align: center;
+    }
+    .nav_menu .parent::after{
+        top: 4px;
+        right: -15px;
+        width: 5px;
+        height: 5px;
+        bottom: auto;
+    }
+    .nav_menu .nav_item:hover{
+        background-color: transparent;
+    }
+    
 }
