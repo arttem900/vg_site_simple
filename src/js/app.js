@@ -73,6 +73,7 @@ const bannerSlide = () => {
      for(let i = 0; i < wrappSlide.length; i++){
             width = wrappSlide[i].offsetWidth
             endWidth += width
+            console.log(width);
      }
     
      tapeSlider.style.width = `${endWidth}px`
@@ -120,59 +121,63 @@ for(let i = 0; i < btnModal.length; i++){
 
 // tabi
 
-function tabVisible(containerTab, elemTab, contentTab, activeCircle, activeText) {
-    function tabContentHide(visible, active) {
-        for (let i = visible; i < contentTab.length; i++) {
-            contentTab[i].classList.remove('show')
-            contentTab[i].classList.add('hide')
-        }
-        for(let j = active; j < activeCircle.length; j++){
-            activeCircle[j].classList.remove('is-active')
-        }
-        for(let a = active; a < activeText.length; a++){
-            activeText[a].classList.remove('is-active')
-        }
-    }
-    tabContentHide(1, 1)
-
-    function tabContentVisible(b, a, c) {
-        if (contentTab[b].classList.contains('hide')) {
-            contentTab[b].classList.add('show')
-            contentTab[b].classList.remove('hide')
-        }
-        if(!activeCircle[a].classList.contains('is-active')){
-            activeCircle[a].classList.add('is-active')
-        }else{
-            activeCircle[a].classList.remove('is-active')
-        }
-        if(!activeText[c].classList.contains('is-active')){
-            activeText[c].classList.add('is-active')
-        }else{
-            activeText[c].classList.remove('is-active')
-        }
-    }
-
-    containerTab.addEventListener('click', (e) => {
-        let target = e.target
-        if (target && target.classList.contains('stroke')) {
-            for (let i = 0; i < elemTab.length; i++) {
-                if (target == elemTab[i]) {
-                    tabContentHide(0, 0)
-                    tabContentVisible(i, i, i)
-                }
+try {
+    function tabVisible(containerTab, elemTab, contentTab, activeCircle, activeText) {
+        function tabContentHide(visible, active) {
+            for (let i = visible; i < contentTab.length; i++) {
+                contentTab[i].classList.remove('show')
+                contentTab[i].classList.add('hide')
+            }
+            for(let j = active; j < activeCircle.length; j++){
+                activeCircle[j].classList.remove('is-active')
+            }
+            for(let a = active; a < activeText.length; a++){
+                activeText[a].classList.remove('is-active')
             }
         }
-    })
+        tabContentHide(1, 1)
+    
+        function tabContentVisible(b, a, c) {
+            if (contentTab[b].classList.contains('hide')) {
+                contentTab[b].classList.add('show')
+                contentTab[b].classList.remove('hide')
+            }
+            if(!activeCircle[a].classList.contains('is-active')){
+                activeCircle[a].classList.add('is-active')
+            }else{
+                activeCircle[a].classList.remove('is-active')
+            }
+            if(!activeText[c].classList.contains('is-active')){
+                activeText[c].classList.add('is-active')
+            }else{
+                activeText[c].classList.remove('is-active')
+            }
+        }
+    
+        containerTab.addEventListener('click', (e) => {
+            let target = e.target
+            if (target && target.classList.contains('stroke')) {
+                for (let i = 0; i < elemTab.length; i++) {
+                    if (target == elemTab[i]) {
+                        tabContentHide(0, 0)
+                        tabContentVisible(i, i, i)
+                    }
+                }
+            }
+        })
+    }
+    
+    let tabProductCard = document.querySelector('.tab_product_card'),
+        stroke = document.querySelectorAll('.stroke'),
+        tabContent = document.querySelectorAll('.block_descr_product_card'),
+        activeElCircle = document.querySelectorAll('.tab_circle'),
+        activeElText = document.querySelectorAll('.product_name')
+    
+    tabVisible(tabProductCard, stroke, tabContent, activeElCircle, activeElText)
+    
+} catch {
+       false
 }
-
-let tabProductCard = document.querySelector('.tab_product_card'),
-    stroke = document.querySelectorAll('.stroke'),
-    tabContent = document.querySelectorAll('.block_descr_product_card'),
-    activeElCircle = document.querySelectorAll('.tab_circle'),
-    activeElText = document.querySelectorAll('.product_name')
-
-tabVisible(tabProductCard, stroke, tabContent, activeElCircle, activeElText)
-
 // end tabi
 
 

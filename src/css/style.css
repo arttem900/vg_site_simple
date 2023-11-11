@@ -183,7 +183,8 @@ button {
 }
 
 .logo{
-    max-width: 233px;
+    /* max-width: 233px; */
+    width: calc(63px + 180*(100vw / 1440));
 }
 .logo img{
     width: 100%;
@@ -201,6 +202,7 @@ button {
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    padding-left: 15px;
 }
 .main_header-right_col{
     display: flex;
@@ -225,7 +227,7 @@ button {
 .phone_handset::before{
     content: '\1F57B';
     display: block;
-   font-size: 40px;
+   font-size: calc(30px + 10*(100vw / 1440));
    color: #fff;
    margin-bottom: 5px;
    transform: rotate(-45deg);
@@ -239,7 +241,7 @@ button {
 
 }
 .block_connection a{
-    font-size: 24px;
+    font-size: calc(13px + 11 *((100vw / 1440)));
     transition: .2s;
 }
 .block_connection a:hover{
@@ -347,6 +349,7 @@ button {
     /* position: absolute;
     right: 8%;
     top: 50%; */
+    width: 30px;
     margin-left: 50px;
     height: 40px;
     align-items: center;
@@ -354,16 +357,15 @@ button {
 }
 .burger{
     display: block;
-    width: 30px;
     height: 4px;
     background-color: #fff;
+    width: 100%;
 }
 
 
 .burger::before{
     content: '';
     display: block;
-    width: 30px;
     height: 4px;
     background-color: #fff;
     top: -9px;
@@ -372,7 +374,6 @@ button {
 .burger::after{
     content: '';
     display: block;
-    width: 30px;
     height: 4px;
     background-color: #fff;
     top: 5px;
@@ -396,6 +397,9 @@ button {
     padding: 16px;
     transition: background .35s;
     white-space: nowrap;
+}
+.navigation_wrapp .nav_item_hover{
+    padding: 16px 26px 16px;
 }
 
 .nav_menu .nav_item:hover{
@@ -500,10 +504,10 @@ button {
     border-right: 2px solid #fff;
     border-bottom: 2px solid #fff;
     position: absolute;
-    top: -3px;
+    top: -4px;
     bottom: 0;
     margin: auto;
-    right: 10px;
+    right: -15px;
     transform: rotate(45deg);
 }
 .nav_menu .nav_item_hover:hover > .dropdown-menu{
@@ -1567,10 +1571,10 @@ button {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    animation: fade .6s;
+    animation: fade1 .6s;
     z-index: 100;
 }
-@keyframes fade {
+@keyframes fade1 {
     0%{
         opacity: 0;
     }
@@ -1673,12 +1677,15 @@ button {
     .container{
         max-width: 960px;
     }
-    .social_media{
+    .main_header-right_col{
+        padding-left: 0;
+    }
+    /* .social_media{
         margin-left: 30px;
         display: grid;
         grid-template-columns: repeat(2, 34px);
         grid-gap: 4px 7px;
-    }
+    } */
     .block_phone{
         margin-right: auto;
     }
@@ -1688,9 +1695,9 @@ button {
     .wrapp_btn_head{
         margin-left: 13px;
     }
-    .main_header-right_col{
+    /* .main_header-right_col{
         padding-left: 3%;
-    }
+    } */
 }
 @media only screen and (max-width: 991px){
     .container{
@@ -1699,12 +1706,42 @@ button {
     .wrapp_btn_head{
         flex-direction: row;
     }
+    .block_address{
+        white-space: break-spaces;
+    }
+    .main_header-center_col{
+        max-width: 250px;
+    }
+    .block_connection{
+        padding-left: 0;
+    }
+    .wrapp_btn_head .main_btn{
+        max-width: none;
+    }
+    .wrapp_btn_head{
+        flex-direction: column;
+    }
     .social_media{
+        max-width: 100px;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    .block_connection{
+        align-items: center;
+    }
+    .number_phone{
+        align-items: flex-end;
+        margin-top: 10px;
+    }
+    .phone_handset{
+        max-height: 38px;
+    }
+    /* .social_media{
         display: flex;
         flex-wrap: nowrap;
         max-width: none;
         margin-right: 30px;
-    }
+    } */
     .wrapp_btn_head{
         margin-left: 0;
         margin-top: 10px;
@@ -1712,9 +1749,9 @@ button {
     .block_phone a{
         font-size: 24px;
     }
-    .main_header-left_col{
+    /* .main_header-left_col{
         flex-direction: column;
-    }
+    } */
     .navigation_wrapp{
         font-size: 14px;
     } 
@@ -1726,6 +1763,12 @@ button {
     .container{
         max-width: 570px;
     }
+    .number_phone{
+        align-items: center;
+    }
+    .phone_handset{
+        max-height: none;
+    }
     .burger_box{
         display: flex;
     }
@@ -1734,7 +1777,7 @@ button {
         align-items: center;
     }
     .block_connection a{
-        font-size: 18px;
+        /* font-size: 18px; */
     }
     .social_media{
         display: none;
@@ -1749,6 +1792,7 @@ button {
         padding: 16px 0
     }
     .head_nav_panel{
+        display: none;
         height: 100vh;
         overflow: auto;
         position: relative;
@@ -1756,11 +1800,11 @@ button {
     .nav_menu{
         flex-direction: column;
     }
-    .nav_menu .nav_item_hover:hover > .dropdown-menu{
+    /* .nav_menu .nav_item_hover:hover > .dropdown-menu{
         position: static;
-    } 
+    }  */
     .navigation_wrapp{
-        padding-top: 15vh;
+        padding-top: 20vh;
     }
     .dropdown-menu{
         position: static;
@@ -1768,6 +1812,7 @@ button {
     }
     .nav_item_hover{
         text-align: center;
+        height: 20px;
     }
     .nav_menu .parent::after{
         top: 4px;
@@ -1780,4 +1825,40 @@ button {
         background-color: transparent;
     }
     
+}
+@media only screen and (max-width: 575px) {
+    .block_connection{
+        padding-left: 15px;
+    }
+    .burger_box{
+        margin-left: 30px;
+    }
+}
+@media only screen and (max-width: 575px){
+    /* .row{
+        flex-direction: column;
+    } */
+    .burger_box{
+        margin-left: 20px;
+    }
+    .main_header-right_col{
+        max-width: none;
+    }
+    .block_connection{
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+@media only screen and (max-width: 426px){
+    .block_connection{
+        padding-left: 5px;
+    }
+}
+@media only screen and (max-width: 375px){
+    .number_phone{
+        gap: 10px;
+    }
+    .block_connection a{
+        letter-spacing: -1.2px;
+    }
 }
